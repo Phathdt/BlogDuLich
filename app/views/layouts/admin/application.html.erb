@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BlogDuLich</title>
+    <title>Admin</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'admin/application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -24,10 +24,11 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="index.html">TOURS</a></li>
-                    <li><a href="blog.html">CẨM NANG DU LỊCH</a></li>
-                    <li><a href="introduce.html">GIỚI THIỆU</a></li>
-                    <li><a href="support.html">HỖ TRỢ</a></li>
+                    <li><%= link_to "TOUR" , admin_tours_path %></li>
+                    <li><%= link_to "TOUR CATEGORY" , admin_tourcategories_path %></li>
+                    <li><%= link_to "BLOG" , admin_blogs_path %></li>
+                    <li><%= link_to "BLOG CATEGORY" , admin_blogcategories_path %></li>
+                    <li><%= link_to "USER" , admin_users_path %></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">(08) 3933 8002</a></li>
@@ -37,7 +38,20 @@
         </div>
     </nav>
 
-    back end
-    <%= yield %>
+
+    <div class="noidungpost">
+        <div class="container">
+            <div class="row">   
+            <% if flash[:notice] %>
+                <div class="alert alert-success"><%= flash[:notice] %></div>
+              <% end %>
+
+              <% if flash[:alert] %>
+                <div class="alert alert-danger"><%= flash[:alert] %></div>
+              <% end %>         
+                <%= yield %> 
+            </div>
+        </div> 
+    </div>
   </body>
 </html>

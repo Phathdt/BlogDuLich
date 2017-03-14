@@ -1,2 +1,15 @@
-<h1>Admin::Tours#index</h1>
-<p>Find me in app/views/admin/tours/index.html.erb</p>
+<h2 class="page-header">Manage Tour <%= link_to "Create New", new_admin_tour_path, class:'btn btn-success pull-right' %></h2>
+<table class="table table-striped">
+<tr>
+  <th>Tour Title</th>
+  <th>Create Date</th>
+  <th>Actions</th>
+</tr>
+<% @tours.each do |tour| %>
+    <tr>
+      <td><%= tour.title %></td>  
+      <td><%= tour.created_at.to_time.strftime('%B %e at %l:%M %p') %></td>    
+      <td><%= link_to "Edit", edit_admin_tour_path(tour), class:'btn btn-primary' %> <%= link_to "Delete", admin_tour_path(tour), class:'btn btn-danger', method: :delete, data: {confirm: 'Are you sure'} %></td>
+    </tr>
+<% end %>
+</table>

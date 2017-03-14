@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  tourcategory_id: 1
+  title: MyText
+  blogcategory_id: 1
   user_id: 1
   body: MyText
 
 two:
-  title: MyString
-  tourcategory_id: 1
+  title: MyText
+  blogcategory_id: 1
   user_id: 1
   body: MyText

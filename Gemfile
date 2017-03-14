@@ -32,13 +32,19 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'bcrypt-ruby'
+gem 'bcrypt-ruby', :require => 'bcrypt'
 
 gem 'bootstrap-sass', '~> 3.3.6' 
 
 gem "autoprefixer-rails"
 
 gem 'simple_form'
+
+gem "font-awesome-rails"
+
+gem 'will_paginate', '~> 3.1.0'
+
+gem "paperclip", "~> 5.0.0"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
