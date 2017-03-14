@@ -1,0 +1,2 @@
+class Tourcategory < ApplicationRecord
+end
