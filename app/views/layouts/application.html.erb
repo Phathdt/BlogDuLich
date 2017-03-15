@@ -24,10 +24,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="<%= params[:controller] == 'admin/tours' ? 'active' : '' %>"><%= link_to "TOURS", root_path %></li>
-                    <li><%= link_to "CẨM NANG DU LỊCH", blogs_path %></li>                    
-                    <li><%= link_to "GIỚI THIỆU", about_path %></li>
-                    <li><%= link_to "HỖ TRỢ", support_path %></li>
+                    <li class="<%= params[:controller] == 'tours' ? 'active' : '' %>"><%= link_to "TOURS", root_path %></li>
+                    <li class="<%= params[:controller] == 'blogs' ? 'active' : '' %>"><%= link_to "CẨM NANG DU LỊCH", blogs_path %></li>                    
+                    <li class="<%= params[:controller] == 'about' ? 'active' : '' %>"><%= link_to "GIỚI THIỆU", about_path %></li>
+                    <li class="<%= params[:controller] == 'support' ? 'active' : '' %>"><%= link_to "HỖ TRỢ", support_path %></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">(08) 3933 8002</a></li>

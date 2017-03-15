@@ -1,5 +1,5 @@
 <h2>Edit Blog</h2>
-
+<%= tinymce %>
 <%= form_for [:admin, @blog] do |f| %>
 	<!-- Check for errors -->
 	<% if @blog.errors.any? %>
@@ -36,7 +36,7 @@
 
 	<div class="form-group">
 		<%= f.label :body %>
-		<%= f.text_area :body ,class:'form-control',id: 'edit'  %>
+		<%= f.text_area :body, :class => "tinymce", :rows => 40, :cols => 60 %>
 	</div>
 	<br>
 	<%= f.submit "Submit", class:'btn btn-primary' %>

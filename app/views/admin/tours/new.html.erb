@@ -1,5 +1,5 @@
 <h2>Add New Tour</h2>
-
+<%= tinymce %>
 <%= form_for [:admin, @tour] do |f| %>
 	<!-- Check for errors -->
 	<% if @tour.errors.any? %>
@@ -46,7 +46,8 @@
 
 	<div class="form-group">
 		<%= f.label :body %>
-		<%= f.text_area :body ,class:'form-control',id: 'edit'  %>
+		<%= f.text_area :body, :class => "tinymce", :rows => 40, :cols => 60 %>
+		
 	</div>
 	<br>
 	<%= f.submit "Submit", class:'btn btn-primary' %>
