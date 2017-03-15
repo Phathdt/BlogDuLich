@@ -1,2 +1,23 @@
-<h1>Blogcategories#show</h1>
-<p>Find me in app/views/blogcategories/show.html.erb</p>
+<div class="container">
+	<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+		<h2><%= @category.name %></h2>
+		<% @blogs.each do |blog| %>
+			<% if blog.blogcategory_id == @category.id %>
+				<%= link_to blog_path(blog), :action => 'go' do %>
+	    			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			            <div class="tour">
+			            	<%= image_tag blog.image.url, width:'100%' %>
+			                <h3><%= blog.title %></h3>
+			            </div>
+			        </div>
+				<% end %>
+			<% end %>
+		<% end %>		
+	</div>	
+	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+		<div class="benphai">
+            <h2>danh muc</h2>
+            <%= render 'partials/sidebar' %>
+        </div>
+	</div>
+</div>

@@ -19,12 +19,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">CHUA CO LOGO</a>
+                <%= link_to "CHUA CO LOGO", root_path, class:'navbar-brand' %>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-                    <li><%= link_to "TOURS", root_path %></li>
+                    <li class="<%= params[:controller] == 'admin/tours' ? 'active' : '' %>"><%= link_to "TOURS", root_path %></li>
                     <li><%= link_to "CẨM NANG DU LỊCH", blogs_path %></li>                    
                     <li><%= link_to "GIỚI THIỆU", about_path %></li>
                     <li><%= link_to "HỖ TRỢ", support_path %></li>
@@ -38,18 +38,10 @@
     </nav>
     <!-- het narbar -->
     <div class="noidungpost">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                    <%= yield %>                
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                    <%= render 'partials/sidebar' %>   
-                </div>
-            </div>
-        </div> 
-    </div>
+        <%= yield %>        
+    </div> 
     <%= render 'partials/footer' %>
+
 </body>
 
 </html>

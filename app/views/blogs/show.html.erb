@@ -1,2 +1,21 @@
-<h1>Blogs#show</h1>
-<p>Find me in app/views/blogs/show.html.erb</p>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+            <h2><%= @blog.title %></h2>
+            <div class="row">
+                <div class="bentrai">
+                    <%= image_tag @blog.image.url, width:'100%' %>
+                    <div class="tour">
+                        <%= @blog.body %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="benphai">
+                <h2>danh muc</h2>
+                <%= render 'partials/sidebar' %>
+            </div>
+        </div>
+    </div>
+</div>

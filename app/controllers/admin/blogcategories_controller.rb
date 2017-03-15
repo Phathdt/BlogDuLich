@@ -39,7 +39,13 @@ class Admin::BlogcategoriesController < Admin::ApplicationController
   end
 
   def index
-    @categories = Blogcategory.all
+    if params[:search]
+    @categories = Blogcategory.search(params[:search]).all.order('created_at DESC')
+
+    else
+      @categories = Blogcategory.all.order('created_at DESC')
+      
+    end
   end
 
   private

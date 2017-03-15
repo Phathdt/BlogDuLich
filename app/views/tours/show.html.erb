@@ -1,2 +1,26 @@
-<h1>Tours#show</h1>
-<p>Find me in app/views/tours/show.html.erb</p>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+            <h2><%= @tour.title %></h2>
+            <div class="row">
+                <div class="bentrai">
+				    <%= image_tag @tour.image.url, width:'100%' %>
+                    <p><i class="fa fa-clock-o" aria-hidden="true"></i> <%= @tour.time %></p>
+	                <p><i class="fa fa-calendar" aria-hidden="true"></i></i> <%= @tour.datepart %></p>
+	                <p><i class="fa fa-money" aria-hidden="true"></i> <%= @tour.price %> vnd</p>
+                    <div class="tour">
+                        <%= @tour.body %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        	<div class="benphai">
+                <h2>danh muc</h2>
+                <%= render 'partials/sidebar' %>
+
+                
+            </div>
+        </div>
+    </div>
+</div>

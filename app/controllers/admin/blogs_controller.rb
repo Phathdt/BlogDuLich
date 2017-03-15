@@ -46,7 +46,11 @@ class Admin::BlogsController < Admin::ApplicationController
   end
 
   def index
-    @blogs = Blog.all
+   if params[:search]
+    @blogs = Blog.search(params[:search]).all.order('created_at DESC').paginate(:page => params[:page], :per_page => 2)
+    else
+      @blogs = Blog.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 2)      
+    end
   end
 
   private

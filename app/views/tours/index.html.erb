@@ -1,2 +1,26 @@
-<h1>Tours#index</h1>
-<p>Find me in app/views/tours/index.html.erb</p>
+<%= render 'partials/banner' %>   
+<%= render 'partials/tieuchuan' %>   
+<div class="container">
+	<% @categories.reverse.each do |category| %>
+		<div class="row">
+		    <h1><%= category.name %></h1>
+		    <hr class="style1">
+		    <% @tours.each do |tour| %>
+		    	<% if tour.tourcategory_id == category.id %>
+			    	<%= link_to tour_path(tour), :action => 'go' do %>
+		    			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+				            <div class="tour">
+				            	<%= image_tag tour.image.url, width:'100%' %>
+				                <h3><%= tour.title %></h3>
+				                <p><i class="fa fa-clock-o" aria-hidden="true"></i> <%= tour.time %></p>
+				                <p><i class="fa fa-calendar" aria-hidden="true"></i></i> <%= tour.datepart %></p>
+				                <p><i class="fa fa-money" aria-hidden="true"></i> <%= tour.price %> vnd</p>
+				            </div>
+				        </div>
+					<% end %>
+		    	<% end %>
+		    <% end %>	    
+		</div>
+	<% end %>
+</div> 
+

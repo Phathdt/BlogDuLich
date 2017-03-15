@@ -39,7 +39,13 @@ class Admin::TourcategoriesController < Admin::ApplicationController
   end
 
   def index
-    @categories = Tourcategory.all
+    if params[:search]
+    @categories = Tourcategory.search(params[:search]).all.order('created_at DESC')
+
+    else
+      @categories = Tourcategory.all.order('created_at DESC')
+      
+    end
   end
 
   private

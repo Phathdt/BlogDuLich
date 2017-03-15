@@ -1,0 +1,38 @@
+<% if params[:controller] == 'admin/tours' %>
+<%= form_tag(admin_tours_path, :method => "get", id:"search-form", class:"navbar-form navbar-right") do %>
+	<div class="form-group">
+  	<%= text_field_tag :search, params[:search], placeholder: "Search Tours", class:'form-control' %>
+	<%= submit_tag "Search", :name => nil, class:'btn btn-primary' %>
+
+	</div>
+<% end %>
+<% elsif params[:controller] == 'admin/tourcategories' %>
+	<%= form_tag(admin_tourcategories_path, :method => "get", id:"search-form", class:"navbar-form navbar-right") do %>
+		<div class="form-group">
+	  	<%= text_field_tag :search, params[:search], placeholder: "Search Tour Categories", class:'form-control' %>
+		</div>
+		<%= submit_tag "Search", :name => nil, class:'btn btn-primary' %>
+	<% end %>
+<% elsif params[:controller] == 'admin/blogs' %>
+	<%= form_tag(admin_blogs_path, :method => "get", id:"search-form", class:"navbar-form navbar-right") do %>
+		<div class="form-group">
+	  	<%= text_field_tag :search, params[:search], placeholder: "Search Blog", class:'form-control' %>
+		</div>
+		<%= submit_tag "Search", :name => nil, class:'btn btn-primary' %>
+	<% end %>
+<% elsif params[:controller] == 'admin/blogcategories' %>
+	<%= form_tag(admin_blogcategories_path, :method => "get", id:"search-form", class:"navbar-form navbar-right") do %>
+		<div class="form-group">
+	  	<%= text_field_tag :search, params[:search], placeholder: "Search Blog Categories", class:'form-control' %>
+		</div>
+		<%= submit_tag "Search", :name => nil, class:'btn btn-primary' %>
+	<% end %>
+<% elsif params[:controller] == 'admin/users' %>
+	<%= form_tag(admin_users_path, :method => "get", id:"search-form", class:"navbar-form navbar-right") do %>
+			<div class="form-group">
+	  		<%= text_field_tag :search, params[:search], placeholder: "Search Users", class:'form-control' %>
+			</div>
+			<%= submit_tag "Search", :name => nil, class:'btn btn-primary' %>
+	<% end %>
+<% end %>
+

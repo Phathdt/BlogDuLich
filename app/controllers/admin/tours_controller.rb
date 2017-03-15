@@ -47,11 +47,17 @@ class Admin::ToursController < Admin::ApplicationController
   end
 
   def index
-    @tours = Tour.all
+    if params[:search]
+    @tours = Tour.search(params[:search]).all.order('created_at DESC').paginate(:page => params[:page], :per_page => 2)
+
+    else
+      @tours = Tour.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 2)
+      
+    end
   end
 
   private
   def tour_params
-    params.require(:tour).permit(:title, :tourcategory_id, :user_id,:price,:image, :body, )
+    params.require(:tour).permit(:title, :tourcategory_id, :user_id,:time,:datepart,:price,:image, :body, )
   end
 end
