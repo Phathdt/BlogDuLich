@@ -1,0 +1,45 @@
+
+<div class="container">
+	<div class="noidungpost">
+		<%= form_for @order do |f| %>
+			
+			<h2>Dat tour</h2>
+			<div class="form-group">
+				<%= f.label :tour_id %>
+				<%= f.select :tour_id, Tour.all.collect {|x| [x.title, x.id]}, {:include_blank => 'Select One'},class:'form-control' %>
+			</div>
+
+			<div class="form-group">
+				<%= f.label 'Gia ve' %>
+				<%= @tour.price%>
+			</div>
+
+			<div class="form-group">
+				<%= f.label 'Ho Ten' %>
+				<%= f.text_field :User_name ,class:'form-control' %>
+			</div>
+
+			<div class="form-group">
+				<%= f.label 'So nguoi' %>
+				<%= f.number_field :number ,class:'form-control' %>
+			</div>
+		  
+			<div class="form-group">
+				<%= f.label 'SDT' %>
+				<%= f.text_field :telephonenum ,class:'form-control' %>
+			</div>
+
+			<div class="form-group">
+				<%= f.label 'email' %>
+				<%= f.text_field :email ,class:'form-control' %>
+			</div>
+
+			<div class="form-group">
+				<%= f.label :note %>
+				<%= f.text_field :note ,class:'form-control' %>
+			</div>
+		  	<%= f.submit "Submit", class:'btn btn-primary' %>
+			<%=link_to "Cancel", root_path, class:'btn btn-default' %>
+		<% end %>
+	</div>
+</div>

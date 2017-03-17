@@ -1,0 +1,3 @@
+<%= @tour.title %>
+<%= @tour.price %>
+<%= link_to "Dat hang", orders_add_path(:order => {:tour_id => @tour.id , :number => 1} ) %>

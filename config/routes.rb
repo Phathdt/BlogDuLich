@@ -1,4 +1,35 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'orders/edit'
+  end
+
+  namespace :admin do
+    get 'orders/update'
+  end
+
+  namespace :admin do
+    get 'orders/destroy'
+  end
+
+  namespace :admin do
+    get 'orders/index'
+  end
+
+  namespace :admin do
+    get 'orders/show'
+  end
+
+  get 'thankyou/index' 
+
+  get 'thankyou' => 'thankyou#index'
+
+  get 'orders/add'
+
+  get 'orders' => 'orders#index'
+  get 'orders/index'
+
+  get 'orders/create'
+
   get 'about/index'
 
   get 'support' =>'support#index'
@@ -173,10 +204,10 @@ Rails.application.routes.draw do
 
   get 'tours/show'
 
-  resources :tours, :blogs , :tourcategories, :blogcategories, :comments
+  resources :tours, :blogs , :tourcategories, :blogcategories, :comments, :orders
 
   namespace :admin do
-    resources :tours, :blogs , :tourcategories, :blogcategories, :comments, :users
+    resources :tours, :blogs , :tourcategories, :blogcategories, :comments, :users , :orders
   end
 
   root 'tours#index'
