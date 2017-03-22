@@ -39,7 +39,11 @@ Rails.application.routes.draw do
   get 'admin' => 'admin/tours#index'
 
   namespace :admin do
-    get 'sessions/new'
+    get "login" =>'sessions#new', :as => "login"
+  end
+
+  namespace :admin do
+    get "logout" =>'sessions#destroy', :as => "logout"
   end
 
   namespace :admin do
@@ -207,7 +211,7 @@ Rails.application.routes.draw do
   resources :tours, :blogs , :tourcategories, :blogcategories, :comments, :orders
 
   namespace :admin do
-    resources :tours, :blogs , :tourcategories, :blogcategories, :comments, :users , :orders
+    resources :tours, :blogs , :tourcategories, :blogcategories, :comments, :users , :orders , :sessions
   end
 
   root 'tours#index'

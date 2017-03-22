@@ -1,4 +1,5 @@
 class Admin::BlogcategoriesController < Admin::ApplicationController
+  before_filter :verify_logged_in
   def new
     @category = Blogcategory.new
   end

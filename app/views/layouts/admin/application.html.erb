@@ -39,14 +39,24 @@
 
     <div class="noidungpost">
         <div class="container">
-            <div class="row">   
-            <% if flash[:notice] %>
+            <div class="row">  
+            <div id="user_nav" class="pull-right">
+                <% if current_user %>
+                  Logged in as <%= current_user.email %>.
+                  <%= link_to "Log out", admin_logout_path %>
+                <% else %>
+                  <%= link_to "log in", admin_login_path %>
+                <% end %>
+              </div> 
+            <div class="clearfix"></div>
+              <!-- Alerts & Messages -->
+              <% if flash[:notice] %>
                 <div class="alert alert-success"><%= flash[:notice] %></div>
               <% end %>
 
               <% if flash[:alert] %>
                 <div class="alert alert-danger"><%= flash[:alert] %></div>
-              <% end %>         
+              <% end %>        
                 <%= yield %> 
             </div>
         </div> 

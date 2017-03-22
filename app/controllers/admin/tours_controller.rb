@@ -1,4 +1,5 @@
 class Admin::ToursController < Admin::ApplicationController
+  before_filter :verify_logged_in
   def new
     @tour = Tour.new
   end

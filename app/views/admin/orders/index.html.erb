@@ -2,6 +2,16 @@
 	<div class="container">
 		<h2 class="page-header">Manage Order <%= link_to "Create New", new_admin_order_path, class:'btn btn-success pull-right' %></h2>
 		<table class="table table-striped">
+		
+		
+		<%= @x.each do |key, value| %>
+			<% tour = Tour.where(:id => key) %>
+				<% tour.each do |x| %>
+					<%= x.title %>
+					<% end %>
+		<% end %>
+
+
 		<tr>
 		  <th>Order ID</th>
 		  <th>Ten khach hang</th>

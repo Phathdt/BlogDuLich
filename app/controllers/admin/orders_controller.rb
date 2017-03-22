@@ -1,6 +1,8 @@
 class Admin::OrdersController < ApplicationController
+  before_filter :verify_logged_in
   def edit
   @order = Order.find(params[:id])
+
   end
 
 
@@ -25,6 +27,8 @@ class Admin::OrdersController < ApplicationController
   end
 
   def index
+    @x = Order.group(:tour_id).count
+
   	if params[:search]
     	@order = Order.search(params[:search]).all.order('created_at DESC').paginate(:page => params[:page], :per_page => 5)
 
@@ -35,7 +39,7 @@ class Admin::OrdersController < ApplicationController
   end
 
   def show
-  	
+    @order = Order.find(params[:id])  	
   end
 
   private
