@@ -1,7 +1,9 @@
-class Admin::OrdersController < ApplicationController
+class Admin::OrdersController < Admin::ApplicationController
+
   before_filter :verify_logged_in
+
   def edit
-  @order = Order.find(params[:id])
+    @order = Order.find(params[:id])
 
   end
 
@@ -36,10 +38,6 @@ class Admin::OrdersController < ApplicationController
       @orders = Order.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 5)
       
     end
-  end
-
-  def show
-    @order = Order.find(params[:id])  	
   end
 
   private

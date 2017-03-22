@@ -13,7 +13,7 @@
 
 
 		<tr>
-		  <th>Order ID</th>
+		  <th>Order ID1</th>
 		  <th>Ten khach hang</th>
 		  <th>Tour nao</th>
 		  <th>So luong</th>
@@ -31,7 +31,7 @@
 			  <td><%= order.telephonenum %></td>    
 			  <td><%= order.note %></td>    
 			  <td><%= order.status %></td>    
-			  <td><%= link_to "Show", admin_orders_show_path(order), class:'btn btn-primary' %> <%= link_to "Edit", edit_admin_order_path(order), class:'btn btn-primary' %> <%= link_to "Delete", admin_order_path(order), class:'btn btn-danger', method: :delete, data: {confirm: 'Are you sure'} %></td>
+			  <td><%= link_to "Edit", edit_admin_order_path(order), class:'btn btn-primary' %> <%= link_to "Delete", admin_order_path(order), class:'btn btn-danger', method: :delete, data: {confirm: 'Are you sure'} %></td>
 			</tr>
 		<% end %>
 		</table>
