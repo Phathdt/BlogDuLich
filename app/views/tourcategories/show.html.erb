@@ -1,23 +1,56 @@
+<section id="packages" class="inverse">
 <div class="container">
 	<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-		<h2><%= @category.name %></h2>
+		<div class="section-title text-center">
+			<h1><%= @category.name %></h1>
+		</div>
 		<% @tours.each do |tour| %>
-			<% if tour.tourcategory_id == @category.id %>
-				<%= link_to tour_path(tour), :action => 'go' do %>
-	    			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-			            <div class="tour">
-			            	<%= image_tag tour.image.url, width:'100%' %>
-			                <h3><%= tour.title %></h3>
-			            </div>
-			        </div>
-				<% end %>
+		<% if tour.tourcategory_id == @category.id %>
+			<%= link_to tour_path(tour), :action => 'go' do %>
+				<div class="col-xs-6 col-sm-6 col-md-6">
+					<div class="package-list wow fadeInUp">
+						
+							<div class="package-thumb">
+								<%= image_tag tour.image.url, width:'100%' %>
+								<div class="duration"><%= tour.time %></div>
+							</div>
+							<div class="package-info">
+								<h3><%= tour.title %></h3>
+								<p>Lorem Ipsum is simply dummy text of the printing and typeseatting industry. Lorem Ipsum has been the industry's</p>
+								<span class="pull-left">
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+								</span>
+								<span class="pull-right price"><%= tour.price %>₫</span>
+							</div>
+					</div>
+				</div>
 			<% end %>
-		<% end %>		
-	</div>	
-	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-		<div class="benphai">
-            <h2>danh muc</h2>
-            <%= render 'partials/sidebar' %>
-        </div>
+		<% end %>
+		<% end %>
 	</div>
+
+
+
+
+
+	<div class="col-xs-12 col-sm-4 col-md-3">                
+        <div class="sidebar">
+            <div class="sidebar-item">
+                <h3>danh mục</h3>
+                <ul class="category-list">
+                <% @categories.reverse.each do |category| %>
+                    <li><%= link_to category.name, tourcategory_path(category), class:'fa fa-angle-right' %></li>
+                <% end %>
+                </ul>
+            </div><!--end sidebar-item-->                                        
+           
+            
+        </div><!--end sidebar-->
+    </div>	
 </div>
+
+</section>

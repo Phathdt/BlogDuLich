@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
   	@order = Order.new(order_params)
 
   	if @order.save
-      redirect_to thankyou_path
+      redirect_to options_thankyou_path
     else
       render 'new'
     end

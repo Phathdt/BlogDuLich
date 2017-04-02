@@ -1,3 +1,4 @@
+<section class="main-content">
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
@@ -11,11 +12,24 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-            <div class="benphai">
-                <h2>danh muc</h2>
-                <%= render 'partials/sidebar' %>
-            </div>
+       <div class="col-xs-12 col-sm-4 col-md-4">                
+            <div class="sidebar">
+                <div class="sidebar-item">                   
+                    <h3>danh mục</h3>
+                    <ul class="category-list">
+                    <% @categories.reverse.each do |category| %>
+                        <li><%= link_to category.name, blogcategory_path(category), class:'fa fa-angle-right' %></li>
+                    <% end %>
+                    </ul>
+                </div><!--end sidebar-item-->                                        
+               
+                
+            </div><!--end sidebar-->
+
+
         </div>
     </div>
 </div>
+
+</section>
+<!--end deals-discounts-->

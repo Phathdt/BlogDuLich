@@ -1,0 +1,2 @@
+module ToursaleHelper
+end

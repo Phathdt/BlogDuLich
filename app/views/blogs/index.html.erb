@@ -1,20 +1,45 @@
+<section id="packages" class="inverse">
 <div class="container">
-	<% @categories.each do |category| %>
+	<% @categories.reverse.each do |category| %>
+	<div class="container">
 		<div class="row">
-		    <h1><%= category.name %></h1>
-		    <hr class="style1">
-		    <% @blogs.each do |blog| %>
-		    	<% if blog.blogcategory_id == category.id %>
-			    	<%= link_to blog_path(blog), :action => 'go' do %>
-		    			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-				            <div class="tour">
-				            	<%= image_tag blog.image.url, width:'100%' %>
-				                <h3><%= blog.title %></h3>
-				            </div>
-				        </div>
-					<% end %>
-		    	<% end %>
-		    <% end %>	    
+			<div class="col-xs-12">
+				<div class="section-title text-center">
+					<h1><%= category.name %></h1>
+				</div>
+			</div>
 		</div>
+		
+		<div class="row">
+		<% @blogs.each do |blog| %>
+		<% if blog.blogcategory_id == category.id %>
+			<%= link_to blog_path(blog), :action => 'go' do %>
+				<div class="col-xs-6 col-sm-6 col-md-4">
+					<div class="package-list wow fadeInUp">
+						
+							<div class="package-thumb">
+								<%= image_tag blog.image.url, width:'100%' %>
+							</div>
+							<div class="package-info">
+								<h3><%= blog.title %></h3>
+								<p>Lorem Ipsum is simply dummy text of the printing and typeseatting industry. Lorem Ipsum has been the industry's</p>
+								<span class="pull-left">
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+								</span>
+							</div>
+					</div>
+				</div>
+				<% end %>
+			<% end %>
+		</div>
+		<% end %>
+			
+	</div>
 	<% end %>
 </div>
+</section>
+<!-- end Packages -->

@@ -1,0 +1,2 @@
+module TourhotHelper
+end

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'toursale/index'
+
+  get 'tourhot/index'
+
   get 'options/index'
 
   get 'options/thankyou'
@@ -29,7 +33,9 @@ Rails.application.routes.draw do
 
   get 'thankyou/index' 
 
-  get 'thankyou' => 'thankyou#index'
+  get 'thankyou' => 'options#thankyou'
+  get 'about' => 'options#about'
+  get 'support' => 'options#support'
 
   get 'orders/add'
 

@@ -1,27 +1,129 @@
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-            <h2><%= @tour.title %></h2>
-            <div class="row">
-                <div class="bentrai">
-				    <%= image_tag @tour.image.url, width:'100%' %>
-                    <p><i class="fa fa-clock-o" aria-hidden="true"></i> <%= @tour.time %></p>
-	                <p><i class="fa fa-calendar" aria-hidden="true"></i></i> <%= @tour.datepart %></p>
-	                <p><i class="fa fa-money" aria-hidden="true"></i> <%= @tour.price %> vnd</p>
-                    <div class="tour">
-                        <%= @tour.body %>
+<section class="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-9">
+                <div class="content-block">
+                    <div class="single_post">
+                        <div class="post_thumb">
+                             <%= image_tag @tour.image.url, width:'100%' %>
+                        </div><!--end post thumb-->
+                        <div class="meta">
+                            <span class="tour-duration">Thời gian : <%= @tour.time %></span>
+                            
+                            <span class="date">Khởi hành : <%= @tour.datepart %></span>
+
+                            <span class="tour-duration">Gía : <%= @tour.price %>₫</span>
+
+                        </div><!--end meta-->
+                        
+                        <h2><%= @tour.title %></h2>
+                        
+                        <div class="post_desc">
+                            <%= @tour.body.html_safe %>
+                            
+                        </div><!--end post desc-->
                     </div>
+                    
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-4 col-md-3">                
+                <div class="sidebar">
+                    <div class="sidebar-item">
+                        <h3>đặt tour</h3>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Mục</th>
+                                    <th>Nội dung</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Tên tour</td>
+                                    <td><%= @tour.title %></td>
+                                </tr>
+                                <tr>
+                                    <td>Thời gian</td>
+                                    <td><%= @tour.time %></td>
+                                </tr>
+                                <tr>
+                                    <td>Khởi hành</td>
+                                    <td><%= @tour.datepart %></td>
+                                </tr>
+                                <tr>
+                                    <td>Gía</td>
+                                    <td><%= @tour.price %></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <%= link_to "Đặt tour", orders_add_path(:order => {:tour_id => @tour.id , :number => 1} ), :class =>"booking btn btn-primary"  %>
+                            
+                        </form>
+                </div><!--end sidebar-item-->   
+                        <div class="sidebar-item">
+                            <h3>danh mục</h3>
+                            <ul class="category-list">
+                            <% @categories.reverse.each do |category| %>
+                                <li><%= link_to category.name, tourcategory_path(category), class:'fa fa-angle-right' %></li>
+                            <% end %>
+                            </ul>
+                        </div><!--end sidebar-item-->                                        
+                   
+                    
+                </div><!--end sidebar-->
+
+
+            </div>
+            
+        </div>
+    </div>
+</section>
+<!--end main-content-->
+
+<!-- Deals and Discounts -->
+<section id="deals-discounts" class="inverse">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title text-center">
+                    <h1>Tour Hot</h1>
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-        	<div class="benphai">
-                <h2>danh muc</h2>
-                <%= render 'partials/dattour' %>
-                <%= render 'partials/sidebar' %>
-
-                
+        
+        <div class="row">
+        <% @tours.each do |tour| %>
+        <%= link_to tour_path(tour), :action => 'go' do %>
+            <div class="col-xs-6 col-sm-6 col-md-4">
+                <div class="package-list wow fadeInUp">
+                    
+                        <div class="package-thumb">
+                            <%= image_tag tour.image.url, width:'100%' %>
+                            <div class="duration"><%= tour.time %></div>
+                        </div>
+                        <div class="package-info">
+                            <h3><%= tour.title %></h3>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typeseatting industry. Lorem Ipsum has been the industry's</p>
+                            <span class="pull-left">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <span class="review-count"> - 100 review</span>
+                            </span>
+                            <span class="pull-right price"><%= tour.price %>₫</span>
+                        </div>
+                    </a>
+                </div>
             </div>
+            <% end %>
+        <% end %>
         </div>
+        
+        \
     </div>
-</div>
+    
+</section>
+<!--end deals-discounts-->
