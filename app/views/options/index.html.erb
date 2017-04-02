@@ -1,0 +1,336 @@
+<div id="banner" class="carousel slide carousel-fade" data-ride="carousel" data-pause="false">
+	<div class="carousel-inner" role="listbox">
+		<div class="item active">
+			<img data-src="<%= image_tag("banner/1.jpg", alt: "logo") %>">
+			<div class="caption-info">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12 col-md-8 col-md-offset-2">
+							<div class="caption-info-inner text-center">
+								<h1 class="animated fadeInDown">Welcome to Tour Maker</h1>
+								<p class="animated fadeInUp">Lorem Ipsum is simply dummy text of the printing and typeseatting industry. Lorem Ipsum has been the industry's</p>
+								<%= link_to("Tour", tours_path , :class => "animated fadeInUp btn btn-primary page-scroll") %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="item">
+			<img data-src="<%= image_tag("banner/2.jpg", alt: "logo") %>">
+			<div class="caption-info">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12 col-md-8 col-md-offset-2">
+							<div class="caption-info-inner text-center">
+								<h1 class="animated zoomIn">We make awesome tour</h1>
+								<p class="animated zoomIn">Lorem Ipsum is simply dummy text of the printing and typeseatting industry. Lorem Ipsum has been the industry's</p>
+								<a href="#contact-us" class="animated zoomIn btn btn-primary page-scroll">Contact Us</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="item">
+			<img data-src="<%= image_tag("banner/3.jpg", alt: "logo") %>">
+			<div class="caption-info">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12 col-md-8 col-md-offset-2">
+							<div class="caption-info-inner text-center">
+								<h1 class="animated fadeInLeft">Find your tour today</h1>
+								<p class="animated fadeInLeft">Lorem Ipsum is simply dummy text of the printing and typeseatting industry. Lorem Ipsum has been the industry's</p>
+								<a href="#hot-deals" class="animated fadeInLeft btn btn-primary page-scroll">Find a tour</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!--end carousel-inner-->
+
+	<!-- Controls -->
+	<a class="control left" href="#banner" data-slide="prev"><i class="fa fa-long-arrow-left"></i></a>
+	<a class="right control" href="#banner" data-slide="next"><i class="fa fa-long-arrow-right"></i></a>
+</div>
+
+<!-- Services Section -->
+<section id="services">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="section-title text-center">
+					<h1>Services</h1>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6 col-md-4">
+				<div class="service-list text-center wow fadeInUp">
+					<i class="fa fa-train"></i>
+					<h3>Rail Booking</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typeseatting industry. Lorem Ipsum has been the industry's</p>
+				</div>
+			</div>
+			
+			<div class="col-xs-6 col-md-4">
+				<div class="service-list text-center wow fadeInUp">
+					<i class="fa fa-bed"></i>
+					<h3>Hotel Booking</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typeseatting industry. Lorem Ipsum has been the industry's</p>
+				</div>
+			</div>
+			
+			<div class="col-xs-6 col-md-4">
+				<div class="service-list text-center wow fadeInUp">
+					<i class="fa fa-plane"></i>
+					<h3>Flight Booking</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typeseatting industry. Lorem Ipsum has been the industry's</p>
+				</div>
+			</div>
+			
+			<div class="col-xs-6 col-md-4">
+				<div class="service-list text-center wow fadeInUp">
+					<i class="fa fa-ticket"></i>
+					<h3>Ticket Booking</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typeseatting industry. Lorem Ipsum has been the industry's</p>
+				</div>
+			</div>
+			
+			<div class="col-xs-6 col-md-4">
+				<div class="service-list text-center wow fadeInUp">
+					<i class="fa fa-ship"></i>
+					<h3>Cruises Booking</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typeseatting industry. Lorem Ipsum has been the industry's</p>
+				</div>
+			</div>
+			
+			<div class="col-xs-6 col-md-4">
+				<div class="service-list text-center wow fadeInUp">
+					<i class="fa fa-home"></i>
+					<h3>Amazing tour</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typeseatting industry. Lorem Ipsum has been the industry's</p>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</section>
+<!--end Services-->
+
+<section id="packages" class="inverse">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="section-title text-center">
+					<h1>Tour Moi</h1>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+		<% @tour_new.each do |tour| %>
+		<%= link_to tour_path(tour), :action => 'go' do %>
+			<div class="col-xs-6 col-sm-6 col-md-4">
+				<div class="package-list wow fadeInUp">
+					
+						<div class="package-thumb">
+							<%= image_tag tour.image.url, width:'100%' %>
+							<div class="duration"><%= tour.time %></div>
+						</div>
+						<div class="package-info">
+							<h3><%= tour.title %></h3>
+							<p>Lorem Ipsum is simply dummy text of the printing and typeseatting industry. Lorem Ipsum has been the industry's</p>
+							<span class="pull-left">
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<span class="review-count"> - 100 review</span>
+							</span>
+							<span class="pull-right price"><%= tour.price %>₫</span>
+						</div>
+					</a>
+				</div>
+			</div>
+			<% end %>
+		<% end %>
+		</div>
+		
+			
+			
+	</div>
+</section>
+<!-- end Packages -->
+
+<section id="hot-deals">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="section-title text-center">
+					<h1>Tour di nhieu</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<ul class="tour-list">
+	<% @tour_hot.each do |tour| %>
+		<li>
+			<div class="tour-thumb">
+				<%= image_tag tour.image.url, width:'100%' %>
+				<div class="overlay">
+					<div class="ovelay-inner text-center">
+						<h2>Tour hot</h2>
+						<p><em><%= tour.title %></em></p>
+						<p><%= tour.price %>₫</p>
+						<%= link_to("Chi tiết", tour_path(tour) , :class =>"btn btn-primary") %>
+					</div>
+				</div>
+			</div>
+		</li>
+	<% end %>
+		
+	
+</section>
+<!--end hot-deals-->
+
+<section id="gallery">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="section-title text-center">
+					<h1>Gallery</h1>
+				</div>
+			</div>
+		</div>		
+		
+	</div>
+	
+	<ul class="gallery-item">
+	<% @tour_hinh.each do |tour| %>
+		<li class="gallery tours hotels">
+			<div class="thumb">
+				<%= image_tag tour.image.url, width:'100%' %>
+				<div class="gallery-overlay">
+				</div>
+			</div><!--end post thumb-->
+		</li>
+	<% end %>
+	</ul>
+	
+</section>
+<!-- end gallery-->
+
+<!-- Blog Section -->
+<section id="blog" class="inverse">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="section-title text-center">
+					<h1>Cam nang du lich</h1>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+		<% @blog_new.each do |blog| %>
+			<%= link_to blog_path(blog), :action => 'go' do %>
+			<div class="col-xs-6 col-md-4">
+				<div class="post wow fadeInUp">
+					<div class="post-thumb">
+						<%= image_tag blog.image.url, width:'100%' %>
+						<div class="post-overlay">
+							<i class="fa fa-link"></i>
+						</div>			
+					</div>
+					<div class="post-bottom">
+						<h3><%= blog.title %></h3>
+						<p><%= blog.body.truncate_words(4) %></p>
+						<div class="pull-left">
+							<span class="post-date"><i class="fa fa-calendar"></i> <%= blog.created_at %></span>
+						</div>
+						
+						<div class="pull-right">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half-o"></i>
+						</div>
+						
+					</div>
+				</div><!--end post-->
+			</div>	
+			<% end %>
+		<% end %>
+			
+		</div>
+	</div>
+</section>
+<!--end blog-->
+
+<!-- Testimonials Section -->
+<section id="testimonials">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="section-title text-center">
+					<h1>Nhận xét của khách hàng</h1>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+				<div class="owl-carousel" id="testimonial-carousel">
+					<div class="testimonial-item text-center">
+						<i class="fa fa-quote-left"></i>
+						<div class="author-comments">
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+						</div>
+						<div class="designation">
+							Thảo - <strong>Company Name</strong>
+						</div>
+						<div class="author">
+							<%= image_tag("testimonials/1.png", alt: "logo") %>
+						</div>
+					</div>
+					
+					<div class="testimonial-item text-center">
+						<i class="fa fa-quote-left"></i>
+						<div class="author-comments">
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+						</div>
+						<div class="designation">
+							Philip Josep - <strong>Company Name</strong>
+						</div>
+						<div class="author">
+							<%= image_tag("testimonials/1.png", alt: "logo") %>
+						</div>
+					</div>
+					
+					<div class="testimonial-item text-center">
+						<i class="fa fa-quote-left"></i>
+						<div class="author-comments">
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+						</div>
+						<div class="designation">
+							Philip Josep - <strong>Company Name</strong>
+						</div>
+						<div class="author">
+							<%= image_tag("testimonials/1.png", alt: "logo") %>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</section>
+<!--end testimonials-->
+
+<!-- Contact Us Section-->

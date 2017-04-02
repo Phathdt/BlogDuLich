@@ -6,7 +6,7 @@
 			<h2>Dat tour</h2>
 			<div class="form-group">
 				<%= f.label :tour_id %>
-				<%= f.select :tour_id, Tour.all.collect {|x| [x.title, x.id]}, {:include_blank => 'Select One'},class:'form-control' %>
+				<%= f.select :tour_id, Tour.all.collect {|x| [x.title, x.id]}, {:include_blank => 'Select One'},class:'form-control', :disabled => true %>
 			</div>
 
 			<div class="form-group">

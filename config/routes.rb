@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'options/index'
+
+  get 'options/thankyou'
+
+  get 'options/support'
+
+  get 'options/about'
+
   namespace :admin do
     get 'orders/edit'
   end
@@ -214,7 +222,7 @@ Rails.application.routes.draw do
     resources :tours, :blogs , :tourcategories, :blogcategories, :comments, :users , :orders , :sessions
   end
 
-  root 'tours#index'
+  root 'options#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
