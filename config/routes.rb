@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'options/index'
+  end
+
   get 'toursale/index'
 
   get 'tourhot/index'
@@ -225,7 +229,7 @@ Rails.application.routes.draw do
   resources :tours, :blogs , :tourcategories, :blogcategories, :comments, :orders
 
   namespace :admin do
-    resources :tours, :blogs , :tourcategories, :blogcategories, :comments, :users , :orders , :sessions
+    resources :tours, :blogs , :tourcategories, :blogcategories, :comments, :users , :orders , :sessions, :options
   end
 
   root 'options#index'

@@ -1,14 +1,20 @@
-<h2 class="page-header">Manage Blog <%= link_to "Create New", new_admin_blog_path, class:'btn btn-success pull-right' %></h2>
+<h2 class="page-header">Quản lý Blog <%= link_to "Tạo mới", new_admin_blog_path, class:'btn btn-success pull-right' %></h2>
 <table class="table table-striped">
 <tr>
-  <th>Blog Title</th>
-  <th>Create Date</th>
+  <th>Tiêu đề</th>
+  <th>Danh mục</th>
+  <th>Ngày đăng</th>
   <th>Actions</th>
 </tr>
 <% @blogs.each do |blog| %>
 	<tr>
-	  <td><%= blog.title %></td>  
-	  <td><%= blog.created_at.to_time.strftime('%B %e at %l:%M %p') %></td>    
+	  <td><%= blog.title %></td>
+	  <% @blogcategories.each do |category| %>
+	  	<% if category.id == blog.blogcategory_id %>
+	  	<th><%= category.name %></th>
+	  	<% end %>
+	  <% end %>
+	  <td><%= blog.created_at.to_time.strftime("%d - %m - %Y") %></td>    
 	  <td><%= link_to "Edit", edit_admin_blog_path(blog), class:'btn btn-primary' %> <%= link_to "Delete", admin_blog_path(blog), class:'btn btn-danger', method: :delete, data: {confirm: 'Are you sure'} %></td>
 	</tr>
 <% end %>

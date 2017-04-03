@@ -1,15 +1,24 @@
-<%= form_tag admin_sessions_path, :class => 'form-signin' do %>
-	<h2 class="form-signin-heading">Login</h2>
-	<!-- Alerts & Messages -->
-    <% if flash[:notice] %>
-      <div class="alert alert-success"><%= flash[:notice] %></div>
-    <% end %>
+<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+  
+</div>
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+  <div class="jumbotron">
+    <div class="container">
+      <%= form_tag admin_sessions_path, :class => 'form-signin' do %>
+        <h2 class="form-signin-heading">Login</h2>
+        <!-- Alerts & Messages -->
+          <% if flash[:notice] %>
+            <div class="alert alert-success"><%= flash[:notice] %></div>
+          <% end %>
 
-    <% if flash[:alert] %>
-      <div class="alert alert-danger"><%= flash[:alert] %></div>
-    <% end %>
-    <%= text_field_tag :email, params[:email], class:'form-control',placeholder:'Email Address' %>
-    <%= password_field_tag :password, '',class:'form-control', placeholder:'Password' %>
-  </p>
-  <%= submit_tag "Log in", class:'btn btn-lg btn-primary btn-block' %>
-<% end %>
+          <% if flash[:alert] %>
+            <div class="alert alert-danger"><%= flash[:alert] %></div>
+          <% end %>
+          <%= text_field_tag :email, params[:email], class:'form-control',placeholder:'Email Address' %>
+          <%= password_field_tag :password, '',class:'form-control', placeholder:'Password' %>
+        </p>
+        <%= submit_tag "Log in", class:'btn btn-lg btn-success btn-block' %>
+      <% end %>
+    </div>
+  </div>
+</div>

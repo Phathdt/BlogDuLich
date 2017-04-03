@@ -48,11 +48,12 @@ class Admin::ToursController < Admin::ApplicationController
   end
 
   def index
+    @tourcategories = Tourcategory.select("id, name")
     if params[:search]
-    @tours = Tour.search(params[:search]).all.order('created_at DESC').paginate(:page => params[:page], :per_page => 2)
+    @tours = Tour.search(params[:search]).all.order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
 
     else
-      @tours = Tour.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 2)
+      @tours = Tour.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
       
     end
   end

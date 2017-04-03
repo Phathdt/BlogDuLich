@@ -1,15 +1,21 @@
-<h2 class="page-header">Manage Tour <%= link_to "Create New", new_admin_tour_path, class:'btn btn-success pull-right' %></h2>
+<h2 class="page-header">Quản lý tour <%= link_to "Tạo mới", new_admin_tour_path, class:'btn btn-success pull-right' %></h2>
 <table class="table table-striped">
 <tr>
-  <th>Tour Title</th>
-  <th>Create Date</th>
+  <th>Tiêu đề</th>
+  <th>Danh mục</th>
+  <th>Ngày đăng</th>
   <th>Actions</th>
 </tr>
 <% @tours.each do |tour| %>
-    <tr>
-      <td><%= tour.title %></td>  
-      <td><%= tour.created_at.to_time.strftime('%B %e at %l:%M %p') %></td>    
-      <td><%= link_to "Edit", edit_admin_tour_path(tour), class:'btn btn-primary' %> <%= link_to "Delete", admin_tour_path(tour), class:'btn btn-danger', method: :delete, data: {confirm: 'Are you sure'} %></td>
+	<tr>
+		<td><%= tour.title %></td>  
+   		<% @tourcategories.each do |category| %>
+  		<% if category.id == tour.tourcategory_id %>
+  			<th><%= category.name %></th>
+  		<% end %>
+	  	<% end %>
+      	<td><%= tour.created_at.to_time.strftime("%d - %m - %Y") %></td>    
+      	<td><%= link_to "Edit", edit_admin_tour_path(tour), class:'btn btn-primary' %> <%= link_to "Delete", admin_tour_path(tour), class:'btn btn-danger', method: :delete, data: {confirm: 'Are you sure'} %></td>
     </tr>
 <% end %>
 </table>

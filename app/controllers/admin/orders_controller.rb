@@ -9,10 +9,10 @@ class Admin::OrdersController < Admin::ApplicationController
 
 
   def update
-    @order = Order.new(order_params)
+    @order = Order.find(params[:id])
 
     if @order.update(order_params)
-      flash[:notice] = 'Tour update'
+      flash[:notice] = 'Order update'
       redirect_to admin_orders_path
     else
       render 'new'
@@ -29,13 +29,12 @@ class Admin::OrdersController < Admin::ApplicationController
   end
 
   def index
-    @x = Order.group(:tour_id).count
-
+    @tour_name = Tour.select("id, title")
   	if params[:search]
-    	@order = Order.search(params[:search]).all.order('created_at DESC').paginate(:page => params[:page], :per_page => 5)
+    	@order = Order.search(params[:search]).all.order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
 
     else
-      @orders = Order.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 5)
+      @orders = Order.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
       
     end
   end

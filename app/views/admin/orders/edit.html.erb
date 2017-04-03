@@ -1,2 +1,46 @@
-<h1>Admin::Orders#edit</h1>
-<p>Find me in app/views/admin/orders/edit.html.erb</p>
+<%= form_for [:admin, @order] do |f| %>
+	<h2>Edit Order</h2>
+
+	<div class="form-group">
+		<%= f.label 'ID' %>
+		<%= f.text_field :id ,class:'form-control', :disabled => true %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :tour_id %>
+		<%= f.select :tour_id, Tour.all.collect {|x| [x.title, x.id]}, {:include_blank => 'Select One'},class:'form-control' ,:disabled => true%>
+	</div>
+
+	<div class="form-group">
+		<%= f.label 'Ho Ten' %>
+		<%= f.text_field :User_name ,class:'form-control' %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label 'So nguoi' %>
+		<%= f.number_field :number ,class:'form-control' ,min: 1%>
+	</div>
+  
+	<div class="form-group">
+		<%= f.label 'SDT' %>
+		<%= f.text_field :telephonenum ,class:'form-control' %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label 'email' %>
+		<%= f.text_field :email ,class:'form-control' %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :note %>
+		<%= f.text_field :note ,class:'form-control' %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :"Trạng thái ( Đã xử lí :1 , chưa xử lí :0 )" %>
+		<%= f.number_field :status ,class:'form-control' ,max: 1, min:0 %>
+	</div>
+
+  	<%= f.submit "Submit", class:'btn btn-primary' %>
+	<%=link_to "Cancel", admin_orders_path, class:'btn btn-default' %>
+<% end %>
