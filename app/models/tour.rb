@@ -5,13 +5,13 @@ class Tour < ApplicationRecord
 	has_attached_file :image
 	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
-	# validates :title, presence: true
-	# validates :tourcategory_id, presence: true
-	# validates :body, presence: true
-	# validates :user_id, presence: true
-	# validates :price, presence: true
-	# validates :time, presence: true
-	# validates :datepart, presence: true
+	validates :title, presence: true
+	validates :tourcategory_id, presence: true
+	validates :body, presence: true
+	validates :user_id, presence: true
+	validates :price, presence: true
+	validates :time, presence: true
+	validates :datepart, presence: true
 	def self.search(query)
 		where("title like ? OR body like ?" , "%#{query}", "%#{query}")
 	end
