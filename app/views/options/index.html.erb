@@ -211,13 +211,13 @@
 	
 	<ul class="gallery-item">
 	<% @tour_hinh.each do |tour| %>
-		<li class="gallery tours hotels">
+		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
 			<div class="thumb">
 				<%= image_tag tour.image.url, width:'100%' %>
 				<div class="gallery-overlay">
 				</div>
 			</div><!--end post thumb-->
-		</li>
+		</div>		
 	<% end %>
 	</ul>
 	
@@ -271,66 +271,5 @@
 	</div>
 </section>
 <!--end blog-->
-
-<!-- Testimonials Section -->
-<section id="testimonials">
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="section-title text-center">
-					<h1>Nhận xét của khách hàng</h1>
-				</div>
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
-				<div class="owl-carousel" id="testimonial-carousel">
-					<div class="testimonial-item text-center">
-						<i class="fa fa-quote-left"></i>
-						<div class="author-comments">
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-						</div>
-						<div class="designation">
-							Thảo - <strong>Company Name</strong>
-						</div>
-						<div class="author">
-							<%= image_tag("testimonials/1.png", alt: "logo") %>
-						</div>
-					</div>
-					
-					<div class="testimonial-item text-center">
-						<i class="fa fa-quote-left"></i>
-						<div class="author-comments">
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-						</div>
-						<div class="designation">
-							Philip Josep - <strong>Company Name</strong>
-						</div>
-						<div class="author">
-							<%= image_tag("testimonials/1.png", alt: "logo") %>
-						</div>
-					</div>
-					
-					<div class="testimonial-item text-center">
-						<i class="fa fa-quote-left"></i>
-						<div class="author-comments">
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-						</div>
-						<div class="designation">
-							Philip Josep - <strong>Company Name</strong>
-						</div>
-						<div class="author">
-							<%= image_tag("testimonials/1.png", alt: "logo") %>
-						</div>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-		
-	</div>
-</section>
-<!--end testimonials-->
 
 <!-- Contact Us Section-->

@@ -3,6 +3,7 @@
 <tr>
   <th>Tiêu đề</th>
   <th>Danh mục</th>
+  <th>Ngày đi</th>
   <th>Ngày đăng</th>
   <th>Actions</th>
 </tr>
@@ -14,6 +15,8 @@
   			<th><%= category.name %></th>
   		<% end %>
 	  	<% end %>
+    <td><%= tour.datepart %></td>  
+
       	<td><%= tour.created_at.to_time.strftime("%d - %m - %Y") %></td>    
       	<td><%= link_to "Edit", edit_admin_tour_path(tour), class:'btn btn-primary' %> <%= link_to "Delete", admin_tour_path(tour), class:'btn btn-danger', method: :delete, data: {confirm: 'Are you sure'} %></td>
     </tr>

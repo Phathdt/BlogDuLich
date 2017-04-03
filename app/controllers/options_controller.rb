@@ -4,6 +4,8 @@ class OptionsController < ApplicationController
   	@tour_hot = Tour.last(6)
   	@tour_hinh = Tour.last(6)
   	@blog_new = Blog.last(6)
+
+    
   end
 
   def thankyou

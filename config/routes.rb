@@ -43,6 +43,8 @@ Rails.application.routes.draw do
 
   get 'orders/add'
 
+  get 'orders/new'
+
   get 'orders' => 'orders#index'
   get 'orders/index'
 

@@ -36,7 +36,9 @@
       <ul class="nav menu">
         <li class="<%= params[:controller] == 'admin/options' ? 'active' : '' %>"><%= link_to '<i class="glyphicon glyphicon-home"></i> Dasboard'.html_safe, admin_options_path %></li>
         <li class="<%= params[:controller] == 'admin/blogs' ? 'active' : '' %>"><%= link_to '<i class="glyphicon glyphicon-book"></i> Blog'.html_safe, admin_blogs_path %></li>
+        <li class="<%= params[:controller] == 'admin/blogcategories' ? 'active' : '' %>"><%= link_to '<i class="glyphicon glyphicon-save-file"></i> Blog category'.html_safe, admin_blogcategories_path %></li>
         <li class="<%= params[:controller] == 'admin/tours' ? 'active' : '' %>"><%= link_to '<i class="glyphicon glyphicon-plane"></i> Tour'.html_safe, admin_tours_path %></li>
+        <li class="<%= params[:controller] == 'admin/tourcategories' ? 'active' : '' %>"><%= link_to '<i class="glyphicon glyphicon-open-file"></i> Tour category'.html_safe, admin_tourcategories_path %></li>
         <li class="<%= params[:controller] == 'admin/orders' ? 'active' : '' %>"><%= link_to '<i class="glyphicon glyphicon-usd"></i> Order'.html_safe, admin_orders_path %></li>
         <li class="<%= params[:controller] == 'admin/users' ? 'active' : '' %>"><%= link_to '<i class="glyphicon glyphicon-user"></i> User'.html_safe, admin_users_path %></li>
       </ul>

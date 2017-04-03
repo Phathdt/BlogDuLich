@@ -1,13 +1,22 @@
 <section id="packages" class="inverse">
 	<div class="container">
 			<%= form_for @order do |f| %>
-				
+				<!-- Check for errors -->
+				<% if @order.errors.any? %>
+				    <% @order.errors.full_messages.each do |msg| %>
+				    	<!-- Show errors -->
+				      	<div class="alert alert-danger"><%= msg %></div>
+				    <% end %>
+			  	<% end %>
+
+
 				<h2 class="text-center">Đặt tour</h2>
 				<div class="form-group">
 					<%= f.label :tour_id %>
 					<%= f.select :tour_id, Tour.all.collect {|x| [x.title, x.id]}, {:include_blank => 'Select One'},class:'form-control'%>
 				</div>
 
+				
 				<div class="form-group">
 					<%= f.label 'Gia ve' %>
 					<%= @tour.price%>

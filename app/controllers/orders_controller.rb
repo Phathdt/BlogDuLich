@@ -1,4 +1,16 @@
 class OrdersController < ApplicationController
+  def new
+    @order = Order.new
+    @tour_id = params[:order][:tour_id]
+    @number = params[:order][:number]
+
+    @order.tour_id = @tour_id.to_i
+
+    @order.number = @number.to_i
+
+    @tour = Tour.find(@tour_id)
+  end
+
   def add
   	@order = Order.new
   	@tour_id = params[:order][:tour_id]
@@ -15,9 +27,9 @@ class OrdersController < ApplicationController
   	@order = Order.new(order_params)
 
   	if @order.save
-      redirect_to options_thankyou_path
+      redirect_to thankyou_path
     else
-      render 'new'
+      redirect_to(:back)
     end
 
   end

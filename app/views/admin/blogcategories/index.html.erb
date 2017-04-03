@@ -1,14 +1,14 @@
-<h2 class="page-header">Manage Categories <%= link_to "Create New", new_admin_blogcategory_path, class:'btn btn-success pull-right' %></h2>
+<h2 class="page-header">Quản lý danh mục <%= link_to "Tạo mới", new_admin_blogcategory_path, class:'btn btn-success pull-right' %></h2>
 <table class="table table-striped">
 <tr>
-  <th>Blog Category Title</th>
-  <th>Create Date</th>
+  <th>Danh mục</th>
+  <th>Ngày tạo</th>
   <th>Actions</th>
 </tr>
 <% @categories.each do |category| %>
 	<tr>
 	  <td><%= category.name %></td>  
-	  <td><%= category.created_at.to_time.strftime('%B %e at %l:%M %p') %></td>    
+	  <td><%= category.created_at.to_time.strftime("%d - %m - %Y") %></td>    
 	  <td><%= link_to "Edit", edit_admin_blogcategory_path(category), class:'btn btn-primary' %> <%= link_to "Delete", admin_blogcategory_path(category), class:'btn btn-danger', method: :delete, data: {confirm: 'Are you sure'} %></td>
 	</tr>
 <% end %>
