@@ -55,6 +55,7 @@ test:
 #
 production:
   <<: *default
+  adapter: mysql2
   database: BlogDuLich_production
   username: BlogDuLich
-  password: <%= ENV['BLOGDULICH_DATABASE_PASSWORD'] %>
+  password: 1234
