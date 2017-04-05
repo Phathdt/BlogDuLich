@@ -1,6 +1,5 @@
+<% @categories.each do |category| %>
 <section id="packages" class="inverse">
-<div class="container">
-	<% @categories.reverse.each do |category| %>
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
@@ -13,36 +12,38 @@
 		<div class="row">
 		<% @tours.each do |tour| %>
 		<% if tour.tourcategory_id == category.id %>
-			<%= link_to tour_path(tour), :action => 'go' do %>
-				<div class="col-xs-6 col-sm-6 col-md-4">
-					<div class="package-list wow fadeInUp">
-						
-							<div class="package-thumb">
-								<%= image_tag tour.image.url, width:'100%' %>
-								<div class="duration"><%= tour.time %></div>
-							</div>
-							<div class="package-info">
-								<h3><%= tour.title %></h3>
-								<p>Lorem Ipsum is simply dummy text of the printing and typeseatting industry. Lorem Ipsum has been the industry's</p>
-								<span class="pull-left">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<span class="review-count"> - 100 review</span>
-								</span>
-								<span class="pull-right price"><%= tour.price %>₫</span>
-							</div>
-					</div>
+		<%= link_to tour_path(tour), :action => 'go' do %>
+			<div class="col-xs-6 col-sm-6 col-md-4">
+				<div class="package-list wow fadeInUp">
+					
+						<div class="package-thumb">
+							<%= image_tag tour.image.url, width:'100%' %>
+							<div class="duration"><%= tour.time %></div>
+						</div>
+						<div class="package-info">
+							<h3><%= tour.title %></h3>
+							<span class="pull-left">
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<span class="review-count"> - 100 review</span>
+							</span>
+							<span class="pull-right price"><%= tour.price %>₫</span>
+						</div>
+					</a>
 				</div>
-				<% end %>
+			</div>
 			<% end %>
-		</div>
 		<% end %>
+		
+		<% end %>
+		</div>
+		
+			
 			
 	</div>
-	<% end %>
-</div>
 </section>
 <!-- end Packages -->
+<% end %>

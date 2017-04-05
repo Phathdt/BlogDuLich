@@ -66,7 +66,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-6 col-md-4">
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
 				<div class="service-list text-center wow fadeInUp">
 					<i class="fa fa-train"></i>
 					<h3>Đặt tour</h3>
@@ -74,7 +74,7 @@
 				</div>
 			</div>
 			
-			<div class="col-xs-6 col-md-4">
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
 				<div class="service-list text-center wow fadeInUp">
 					<i class="fa fa-bed"></i>
 					<h3>Khách sạn</h3>
@@ -82,7 +82,7 @@
 				</div>
 			</div>
 			
-			<div class="col-xs-6 col-md-4">
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
 				<div class="service-list text-center wow fadeInUp">
 					<i class="fa fa-plane"></i>
 					<h3>Vé máy bay</h3>
@@ -90,7 +90,7 @@
 				</div>
 			</div>
 			
-			<div class="col-xs-6 col-md-4">
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
 				<div class="service-list text-center wow fadeInUp">
 					<i class="fa fa-ticket"></i>
 					<h3>Xe du lịch</h3>
@@ -98,7 +98,7 @@
 				</div>
 			</div>
 			
-			<div class="col-xs-6 col-md-4">
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
 				<div class="service-list text-center wow fadeInUp">
 					<i class="fa fa-ship"></i>
 					<h3>Cruises Booking</h3>
@@ -106,7 +106,7 @@
 				</div>
 			</div>
 			
-			<div class="col-xs-6 col-md-4">
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
 				<div class="service-list text-center wow fadeInUp">
 					<i class="fa fa-home"></i>
 					<h3>Amazing tour</h3>
@@ -141,7 +141,6 @@
 						</div>
 						<div class="package-info">
 							<h3><%= tour.title %></h3>
-							<p>Lorem Ipsum is simply dummy text of the printing and typeseatting industry. Lorem Ipsum has been the industry's</p>
 							<span class="pull-left">
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star"></i>
@@ -165,7 +164,7 @@
 </section>
 <!-- end Packages -->
 
-<section id="hot-deals">
+<section id="packages" class="inverse">
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
@@ -174,55 +173,42 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	
-	<ul class="tour-list">
-	<% @tour_hot.each do |tour| %>
-		<li>
-			<div class="tour-thumb">
-				<%= image_tag tour.image.url, width:'100%' %>
-				<div class="overlay">
-					<div class="ovelay-inner text-center">
-						<h2>Tour hot</h2>
-						<p><em><%= tour.title %></em></p>
-						<p><%= tour.price %>₫</p>
-						<%= link_to("Chi tiết", tour_path(tour) , :class =>"btn btn-primary") %>
-					</div>
-				</div>
-			</div>
-		</li>
-	<% end %>
 		
-	
-</section>
-<!--end hot-deals-->
-
-<section id="gallery">
-	<div class="container">
 		<div class="row">
-			<div class="col-xs-12">
-				<div class="section-title text-center">
-					<h1>Gallery</h1>
+		<% @tour_hot.each do |tour| %>
+		<%= link_to tour_path(tour), :action => 'go' do %>
+			<div class="col-xs-6 col-sm-6 col-md-4">
+				<div class="package-list wow fadeInUp">
+					
+						<div class="package-thumb">
+							<%= image_tag tour.image.url, width:'100%' %>
+							<div class="duration"><%= tour.time %></div>
+						</div>
+						<div class="package-info">
+							<h3><%= tour.title %></h3>
+							<span class="pull-left">
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<span class="review-count"> - 100 review</span>
+							</span>
+							<span class="pull-right price"><%= tour.price %>₫</span>
+						</div>
+					</a>
 				</div>
 			</div>
-		</div>		
+			<% end %>
+		<% end %>
+		</div>
 		
+			
+			
 	</div>
-	
-	<ul class="gallery-item">
-	<% @tour_hinh.each do |tour| %>
-		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-			<div class="thumb">
-				<%= image_tag tour.image.url, width:'100%' %>
-				<div class="gallery-overlay">
-				</div>
-			</div><!--end post thumb-->
-		</div>		
-	<% end %>
-	</ul>
-	
 </section>
-<!-- end gallery-->
+<!-- end Packages -->
+
 
 <!-- Blog Section -->
 <section id="blog" class="inverse">
@@ -248,7 +234,7 @@
 					</div>
 					<div class="post-bottom">
 						<h3><%= blog.title %></h3>
-						<p><%= blog.body.truncate_words(4) %></p>
+						<!-- <p><%= blog.body.truncate_words(4) %></p> -->
 						<div class="pull-left">
 							<span class="post-date"><i class="fa fa-calendar"></i> <%= blog.created_at %></span>
 						</div>
@@ -274,7 +260,7 @@
 
 <!-- Testimonials Section -->
 <section id="testimonials">
-	<div class="container">
+	<div class="container text-center">
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="section-title text-center">
@@ -283,18 +269,21 @@
 			</div>
 		</div>
 		
-		<div class="row">
+		<div class="row " style="font-size: 20px">
 			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
 					<p>“Với giá là khoảng 5 triệu/người cho một tour du lịch Thái Lan 5 ngày 4 đêm thì nhìn chung đây là một chương trình rất tốt. Chương trình sắp xếp tương đối hợp lý. Thức ăn phục vụ trong suốt chương trình cũng rất ngon.  Tuy nhiên, nếu có thể cho khách thưởng thức nhiều hơn những món đặc sản của vùng đất Thái Lan thì sẽ tuyệt vời hơn nữa. Thái độ phục vụ của Hướng dẫn viên du lịch rất thân thiện, đặc biệt là Hướng dẫn viên du lịch địa phương: vui tính, hiểu biết rộng."</p>
 					<p>Phùng Thị Mỹ Phượng</p>
+					<%= image_tag("avatar/avatar1.jpg", alt: "feedback", style:"border-radius: 50%; width: 50%;display: block;margin: 0 auto;") %>
 				</div>
 			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
 					<p>“Trước hết, tôi xin gửi lời cảm ơn chân thành tới công ty Let's Go đã mang đến cho tôi và gia đình một đường tour thú vị.  Chuyến đi mở ra cho tôi một cái nhìn mới về đất nước Singapore: xanh + sạch + đẹp… các điểm quan hấp dẫn và hơn thế nữa là đất nước của sự hiện đại, không kém gì các quốc gia phát triển ngày nay. Cùng với sự hướng dẫn nhiệt tình của Hướng dẫn viên địa phương và đặc biệt là Hướng dẫn viên Let's Go (Ms Thơm) mang đến cho chúng tôi một tour đáng nhớ. Xin cảm ơn và chúc thành công!”</p>
 					<p>Nguyễn Bích</p>
+					<%= image_tag("avatar/avatar2.jpg", alt: "feedback", style:"border-radius: 50%; width: 50%;display: block;margin: 0 auto;") %>
 				</div>
 			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
 					<p> “Chúng tôi cảm thấy vui và học hỏi được nhiều điều bổ ích trong chuyến đi này và cũng mong công ty Let's Go tạo thêm nhiều điều kiện nữa để nhiều người có thể được đi tour Du Lịch Việt.  Chúng tôi sẽ giới thiệu cho nhiều người hơn nữa biết về công ty Let's Go. Chúng tôi thích ở khách sạn Asia Pattaya hơn Color Living và rất thích ăn buffet ở khách sạn này vì thức ăn ở đây rất ngon và rất vừa vặn. Mong công ty Du Lịch Việt ngày càng phát triển hơn trong ngành du lịch.”</p>
-					<p>Trần Lộc Thọ</p>
+					<p>Hoàng Ngọc Yến</p>
+					<%= image_tag("avatar/avatar3.jpg", alt: "feedback", style:"border-radius: 50%; width: 50%;display: block;margin: 0 auto;") %>
 			</div>
 		</div>
 		

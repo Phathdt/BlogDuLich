@@ -7,7 +7,7 @@ class Blog < ApplicationRecord
 
 	validates :title, presence: true
 	validates :blogcategory_id, presence: true
-	validates :body, presence: true
+	# validates :body, presence: true
 
 	def self.search(query)
 		where("title like ? OR body like ?" , "%#{query}", "%#{query}")

@@ -33,8 +33,7 @@
                     <div class="collapse navbar-collapse" id="navbar">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="<%= params[:controller] == 'tours' ? 'active' : '' %>"><%= link_to "TOURS", tours_path %></li>
-                            <li class="<%= params[:controller] == 'tourhot' ? 'active' : '' %>"><%= link_to "TOURS HOT", tourhot_index_path %></li>
-                            <li class="<%= params[:controller] == 'toursale' ? 'active' : '' %>"><%= link_to "TOURS DANG GIAM GIA", toursale_index_path %></li>
+                            <li class="<%= params[:controller] == 'tourhot' ? 'active' : '' %>"><%= link_to "TOURS MƠÍ", tourhot_index_path %></li>
                             <li class="<%= params[:controller] == 'blogs' ? 'active' : '' %>"><%= link_to "CẨM NANG DU LỊCH", blogs_path %></li>                   
                             <li class="<%= params[:controller] == 'about' ? 'active' : '' %>"><%= link_to "GIỚI THIỆU",  options_about_path %></li>
                             <li class="<%= params[:controller] == 'support' ? 'active' : '' %>"><%= link_to "HỖ TRỢ", options_support_path %></li>

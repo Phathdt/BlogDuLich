@@ -7,7 +7,7 @@ class ToursController < ApplicationController
   def show
     @tour = Tour.find(params[:id])
   	@categories = Tourcategory.all
-  	@tours = Tour.all
+  	@tours = Tour.last(4)
     
   end
 end

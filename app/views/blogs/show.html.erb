@@ -7,7 +7,7 @@
                 <div class="bentrai">
                     <%= image_tag @blog.image.url, width:'100%' %>
                     <div class="tour">
-                        <%= @blog.body %>
+                        <%= @blog.body.html_safe %>
                     </div>
                 </div>
             </div>

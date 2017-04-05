@@ -96,7 +96,7 @@ h4{
 }
 
 p{
-	font-size:15px;
+	font-size:20px;
 	margin:0 0 15px;
 	color:#777;
 	font-weight:300;
@@ -490,7 +490,7 @@ section{
 }
 .package-thumb > img{
 	width:100%;
-	height:auto;
+	height:200px;
 	-webkit-transition:all 0.5s ease-in-out;
 	-moz-transition:all 0.5s ease-in-out;
 	-ms-transition:all 0.5s ease-in-out;
@@ -500,7 +500,7 @@ section{
 .package-info{
 	width:100%;
 	float:left;
-	height:auto;
+	height:200px;
 	padding:15px;
 }
 .package-list a:hover .package-thumb > img{
@@ -589,9 +589,14 @@ section{
 .tour-thumb{
 	width:100%;
 	float:left;
-	height:auto;
+	height:335px;
 	position:relative;
 	overflow:hidden;
+}
+.thumb>img {
+    width: 100%;
+    height: 335px;
+    padding: 0px;
 }
 .tour-thumb img{
 	width:100%;
@@ -899,6 +904,9 @@ section{
 	-o-transition:all 0.6s ease-in-out;
 	transition:all 0.6s ease-in-out;
 }
+ img#01 {
+	width: 10px;
+}
 .gallery-item a{
 	-webkit-transform:translateY(70px);
 	-moz-transform:translateY(70px);
@@ -961,7 +969,7 @@ section{
 .post-thumb{
 	width:100%;
 	float:left;
-	height:auto;
+	height:245px;
 	position:relative;
 	overflow:hidden;
 	-webkit-border-radius:5px 5px 0 0;

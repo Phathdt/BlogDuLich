@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
   	if @order.save
       redirect_to thankyou_path
     else
-      redirect_to(:back)
+      redirect_to root_path
     end
 
   end
