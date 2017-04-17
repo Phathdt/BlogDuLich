@@ -1,0 +1,20 @@
+<h2 class="page-header">Quản lý Subscribe</h2>
+<table class="table table-striped">		
+<tr>
+  <th>ID</th>
+  <th>Tên khách hàng</th>
+  <th>Email</th>
+  <th>Số đt</th>  
+  <th>Actions</th>
+</tr>
+<% @subs.each do |sub| %>
+	<tr>
+	  <td><%= sub.id %></td>  
+	  <td><%= sub.name %></td>  
+	  <td><%= sub.email %></td>  
+	  <td><%= sub.phone %></td>  
+	  <td><%= link_to "Edit", edit_admin_subscribe_path(sub), class:'btn btn-primary' %> <%= link_to "Delete", admin_subscribe_path(sub), class:'btn btn-danger', method: :delete, data: {confirm: 'Are you sure'} %></td>
+	</tr>
+<% end %>
+</table>
+<%= will_paginate @subs %>

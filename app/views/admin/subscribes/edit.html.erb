@@ -1,0 +1,24 @@
+<section id="packages" class="inverse">
+	<div class="container">
+			<%= form_for [:admin, @sub] do |f| %>
+				
+				<h2 class="text-center">Subscribe</h2>			
+				<div class="form-group">
+					<%= f.label 'Họ và Tên' %>
+					<%= f.text_field :name ,class:'form-control' %>
+				</div>
+
+				<div class="form-group">
+					<%= f.label 'email' %>
+					<%= f.email_field :email ,class:'form-control' %>
+				</div>
+
+				<div class="form-group">
+					<%= f.label 'SDT' %>
+					<%= f.text_field :phone ,class:'form-control' %>
+				</div>
+			  	<%= f.submit "Submit", class:'btn btn-primary' %>
+				<%=link_to "Cancel", root_path, class:'btn btn-default' %>
+			<% end %>
+	</div>
+</section>
