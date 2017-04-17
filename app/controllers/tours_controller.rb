@@ -8,6 +8,5 @@ class ToursController < ApplicationController
     @tour = Tour.find(params[:id])
   	@categories = Tourcategory.all
   	@tours = Tour.last(4)
-    
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170317094503) do
+ActiveRecord::Schema.define(version: 20170417122803) do
 
   create_table "blogcategories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "name"
@@ -49,6 +49,13 @@ ActiveRecord::Schema.define(version: 20170317094503) do
     t.datetime "updated_at",                             null: false
     t.text     "note",         limit: 65535
     t.text     "User_name",    limit: 65535
+  end
+
+  create_table "subscribes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.text     "name",       limit: 65535
+    t.text     "email",      limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "tourcategories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|

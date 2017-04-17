@@ -55,16 +55,15 @@
                             
                         </form>
                 </div><!--end sidebar-item-->   
-                        <div class="sidebar-item">
-                            <h3>danh mục</h3>
-                            <ul class="category-list">
-                            <% @categories.reverse.each do |category| %>
-                                <li><%= link_to category.name, tourcategory_path(category), class:'fa fa-angle-right' %></li>
-                            <% end %>
-                            </ul>
-                        </div><!--end sidebar-item-->                                        
-                   
-                    
+                <div class="sidebar-item">
+                    <h3>danh mục</h3>
+                    <ul class="category-list">
+                    <% @categories.reverse.each do |category| %>
+                        <li><%= link_to category.name, tourcategory_path(category), class:'fa fa-angle-right' %></li>
+                    <% end %>
+                    </ul>
+                </div><!--end sidebar-item-->             
+                <%= link_to 'Subscribe', subscribes_new_path, :class =>"booking btn btn-primary" %>
                 </div><!--end sidebar-->
 
 
