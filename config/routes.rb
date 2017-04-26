@@ -41,6 +41,9 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'subscribes/index'
   end
+  namespace :admin do
+    get 'subscribes/about'
+  end
 
   get 'subscribes/new'
 
@@ -277,7 +280,7 @@ Rails.application.routes.draw do
 
   get 'tours/show'
 
-  resources :tours, :blogs , :tourcategories, :blogcategories, :comments, :orders, :subscribes
+  resources :tours, :blogs , :tourcategories, :blogcategories, :comments, :orders, :subscribes, :mails
 
   namespace :admin do
     resources :tours, :blogs , :tourcategories, :blogcategories, :comments, :users , :orders , :sessions, :options, :subscribes, :mails

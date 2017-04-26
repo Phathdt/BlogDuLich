@@ -1,0 +1,11 @@
+<h2 class="page-header">Danh sach email</h2>
+<table class="table table-striped">		
+<tr>
+  <th>Email</th>
+</tr>
+<% @subs.each do |sub| %>
+	<tr> 
+	  <td><%= sub.email %></td>
+	</tr>
+<% end %>
+</table>

@@ -27,6 +27,10 @@ class Admin::SubscribesController < Admin::ApplicationController
   def index
   	@subs = Subscribe.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
   end
+
+  def about
+    @subs = Subscribe.all
+  end 
   private
   def sub_params
   	params.require(:subscribe).permit(:name, :email, :phone)  	

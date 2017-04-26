@@ -7,7 +7,10 @@ class Admin::MailsController < Admin::ApplicationController
     @mail = Mail.new(mail_params)
 
     if @mail.save
-      flash[:notice] = 'Mail Created'
+      @subs = Subscribe.all
+      # send mail
+      
+      flash[:notice] = 'Mail Sended'
       redirect_to admin_mails_path
     else
       render 'new'   
@@ -40,10 +43,6 @@ class Admin::MailsController < Admin::ApplicationController
   def index
     @mails = Mail.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
       
-  end
-
-  def sendmail
-
   end
 
   private
