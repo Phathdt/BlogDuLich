@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th4 05, 2017 lúc 07:30 PM
--- Phiên bản máy phục vụ: 5.7.17-0ubuntu0.16.04.1
+-- Thời gian đã tạo: Th4 26, 2017 lúc 07:33 PM
+-- Phiên bản máy phục vụ: 5.7.17-0ubuntu0.16.04.2
 -- Phiên bản PHP: 7.0.15-0ubuntu0.16.04.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -117,6 +117,27 @@ CREATE TABLE `comments` (
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `mails`
+--
+
+CREATE TABLE `mails` (
+  `id` int(11) NOT NULL,
+  `subject` text COLLATE utf8_unicode_ci,
+  `detail` text COLLATE utf8_unicode_ci,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `mails`
+--
+
+INSERT INTO `mails` (`id`, `subject`, `detail`, `created_at`, `updated_at`) VALUES
+(1, 'Chương trình khuyến mãi', '<h1 style="text-align: center;">&nbsp;Giảm gi&aacute; si&ecirc;u khuyến m&atilde;i c&aacute;c tour du lich</h1>\r\n<p style="margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: \'Open Sans\', Arial, sans-serif;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris imperdiet commodo libero eget mattis. Nam lobortis purus ac elit consectetur dapibus. Donec urna eros, tincidunt in commodo a, condimentum id libero. Sed lacinia iaculis eros, ut vulputate magna vulputate in. Mauris ut velit eget neque molestie iaculis vitae non tortor. Donec ipsum nulla, bibendum id libero quis, gravida interdum velit. Ut non viverra arcu, non mollis nibh. Aliquam vitae lectus felis. Pellentesque et accumsan lacus, ut condimentum justo.</p>\r\n<p style="margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: \'Open Sans\', Arial, sans-serif;">Etiam mattis eleifend felis, eget blandit orci eleifend et. Sed at sapien id dui malesuada pharetra. Fusce vitae sodales velit, eu placerat magna. Donec ornare libero in diam pellentesque congue vitae at lacus. Praesent ac eros lectus. Nunc at euismod orci, et pretium ipsum. Maecenas convallis, nibh id iaculis ullamcorper, ligula massa molestie lorem, quis vulputate urna mauris quis est. Quisque fringilla metus in congue ultrices. Aenean fermentum nibh eget tortor rutrum, nec consectetur augue porta. Praesent lectus leo, vulputate tempus quam nec, mollis facilisis eros. Sed fermentum tellus in purus placerat varius. Phasellus pulvinar nunc quis semper ullamcorper.</p>\r\n<p style="margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: \'Open Sans\', Arial, sans-serif;">Vivamus aliquam at neque ut cursus. Cras varius risus sapien, eget porttitor erat laoreet vel. Curabitur convallis ante nec consequat pulvinar. Donec ac elit scelerisque, vestibulum tellus a, vehicula mauris. Aliquam luctus accumsan ex, ut interdum metus lobortis eget. Fusce aliquet tincidunt ultricies. Donec sollicitudin purus neque, at dictum lorem egestas in. Nam malesuada sem id rutrum tempor. Curabitur non risus sit amet arcu eleifend imperdiet. Etiam convallis lorem vitae sagittis egestas.</p>\r\n<p style="margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: \'Open Sans\', Arial, sans-serif;">Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus in ex non sem consequat congue non sed libero. Pellentesque nibh velit, consectetur eget faucibus ut, pharetra et nisl. Duis mollis imperdiet sem nec gravida. Aliquam placerat efficitur enim interdum hendrerit. Praesent id finibus turpis, quis volutpat ex. Suspendisse sit amet ligula sodales, placerat ante ac, tincidunt ex. Maecenas ullamcorper quis turpis gravida aliquet. Phasellus id molestie metus.</p>\r\n<p style="margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: \'Open Sans\', Arial, sans-serif;">Suspendisse mattis ultricies mi, ac tempus nunc posuere sed. Vestibulum eleifend id mi ut egestas. Maecenas sed gravida nisl, sed vehicula nisl. Phasellus enim neque, placerat vel odio eu, pulvinar egestas sapien. Nam vel condimentum arcu, et condimentum ipsum. Fusce et libero quis metus venenatis lobortis. Sed sollicitudin fringilla est, nec placerat turpis finibus vel. Etiam tincidunt libero ac gravida sagittis. Nullam luctus luctus pulvinar. Vestibulum faucibus magna enim, suscipit aliquam quam viverra id. Nullam eget tellus rutrum, placerat justo non, pellentesque mi. Sed vel turpis eu massa auctor convallis.</p>\r\n<p style="margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: \'Open Sans\', Arial, sans-serif;">&nbsp;</p>', '2017-04-17 15:43:44', '2017-04-17 15:58:07');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `orders`
 --
 
@@ -172,7 +193,31 @@ INSERT INTO `schema_migrations` (`version`) VALUES
 ('20170315013758'),
 ('20170317071442'),
 ('20170317081049'),
-('20170317094503');
+('20170317094503'),
+('20170417122803'),
+('20170417153212');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `subscribes`
+--
+
+CREATE TABLE `subscribes` (
+  `id` int(11) NOT NULL,
+  `name` text COLLATE utf8_unicode_ci,
+  `email` text COLLATE utf8_unicode_ci,
+  `phone` text COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `subscribes`
+--
+
+INSERT INTO `subscribes` (`id`, `name`, `email`, `phone`, `created_at`, `updated_at`) VALUES
+(3, 'phat', 'droidmaxxx@gmail.com', '945804675', '2017-04-17 13:16:23', '2017-04-17 13:16:23');
 
 -- --------------------------------------------------------
 
@@ -287,6 +332,12 @@ ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `mails`
+--
+ALTER TABLE `mails`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `orders`
 --
 ALTER TABLE `orders`
@@ -297,6 +348,12 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `schema_migrations`
   ADD PRIMARY KEY (`version`);
+
+--
+-- Chỉ mục cho bảng `subscribes`
+--
+ALTER TABLE `subscribes`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `tourcategories`
@@ -336,9 +393,19 @@ ALTER TABLE `blogs`
 ALTER TABLE `comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT cho bảng `mails`
+--
+ALTER TABLE `mails`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT cho bảng `subscribes`
+--
+ALTER TABLE `subscribes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT cho bảng `tourcategories`

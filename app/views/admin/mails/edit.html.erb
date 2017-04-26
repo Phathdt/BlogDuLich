@@ -1,0 +1,29 @@
+<h2>Edit Mail</h2>
+<%= tinymce %>
+<%= form_for [:admin, @mail] do |f| %>
+	<!-- Check for errors -->
+	<% if @mail.errors.any? %>
+	    <% @mail.errors.full_messages.each do |msg| %>
+	    	<!-- Show errors -->
+	      	<div class="alert alert-danger"><%= msg %></div>
+	    <% end %>
+  	<% end %>
+
+	<div class="form-group">
+		<%= f.label :'Chủ đề' %>
+		<%= f.text_field :subject ,class:'form-control' %>
+	</div>
+
+
+
+	<div class="form-group">
+		<%= f.label :'Nội dung' %>
+		
+		<%= f.text_area :detail, :class => "tinymce", :rows => 40, :cols => 60 %>
+	</div>
+
+	<br>
+	<%= f.submit "Submit", class:'btn btn-primary' %>
+	<%=link_to "Cancel", admin_blogs_path, class:'btn btn-default' %>
+<% end %>
+

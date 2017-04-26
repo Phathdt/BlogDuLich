@@ -1,5 +1,32 @@
 Rails.application.routes.draw do
   namespace :admin do
+    get 'mails/send'
+  end
+  namespace :admin do
+    get 'mails/new'
+  end
+
+  namespace :admin do
+    get 'mails/create'
+  end
+
+  namespace :admin do
+    get 'mails/edit'
+  end
+
+  namespace :admin do
+    get 'mails/update'
+  end
+
+  namespace :admin do
+    get 'mails/destroy'
+  end
+
+  namespace :admin do
+    get 'mails/index'
+  end
+
+  namespace :admin do
     get 'subscribes/edit'
   end
 
@@ -253,7 +280,7 @@ Rails.application.routes.draw do
   resources :tours, :blogs , :tourcategories, :blogcategories, :comments, :orders, :subscribes
 
   namespace :admin do
-    resources :tours, :blogs , :tourcategories, :blogcategories, :comments, :users , :orders , :sessions, :options, :subscribes
+    resources :tours, :blogs , :tourcategories, :blogcategories, :comments, :users , :orders , :sessions, :options, :subscribes, :mails
   end
 
   root 'options#index'

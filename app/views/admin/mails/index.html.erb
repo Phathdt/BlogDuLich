@@ -1,0 +1,18 @@
+<h2 class="page-header">Quản lý Mail <%= link_to "Tạo mới", new_admin_mail_path, class:'btn btn-success pull-right' %></h2>
+<table class="table table-striped">
+<tr>
+	<th>ID</th>
+	<th>Subject</th>
+	<th>Ngay Dang</th>
+  	<th>Actions</th>
+</tr>
+<% @mails.each do |mail| %>
+	<tr>
+	  <td><%= mail.id %></td>
+	  <td><%= mail.subject %></td>
+	  <td><%= mail.created_at.to_time.strftime("%d - %m - %Y") %></td>
+	  <td><%= link_to "View - Edit", edit_admin_mail_path(mail), class:'btn btn-primary' %><%= link_to "Send email", edit_admin_mail_path(mail), class:'btn btn-danger' %> </td>
+	</tr>
+<% end %>
+</table>
+<%= will_paginate @mails %>
